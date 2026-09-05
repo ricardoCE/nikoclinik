@@ -1,68 +1,83 @@
 /* NikoClinik — landing page
-   Paleta sobria: blanco, tinta casi negra y un teal clínico como único acento.
-   Todos los colores viven en tokens para que el tema oscuro sea un solo bloque. */
+   Concepto: la clínica dental como "caja de luz" — el gabinete donde se
+   revisan radiografías. El hero vive en un panel de tinta nocturna fija
+   (marca, no tema), y el resto de la página es papel/porcelana cálido.
+   Un único arco —la sonrisa— separa ambos mundos y reaparece, en miniatura,
+   como firma en título, ícono de servicio y viñeta de checklist.
+   Los tokens de color viven aquí para que el tema oscuro sea un solo bloque;
+   --hero-bg/--hero-ink son fijos: son la marca, no el tema. */
 
 :root {
-  --ink:          #101d1c;
-  --ink-soft:     #5b6b6a;
-  --line:         #e3e8e7;
-  --bg:           #ffffff;
-  --bg-alt:       #f6f8f8;
-  --accent:       #0f6b62;
-  --accent-hover: #0b5049;
-  --accent-text:  #0b5049;
-  --btn-fg:       #ffffff;
+  --ink:          #182636;
+  --ink-soft:     #5c6b7c;
+  --line:         #e2d9c7;
+  --bg:           #fbf6ec;
+  --bg-alt:       #f2ebdc;
+  --accent:       #8c5f2c;
+  --accent-hover: #6e4a20;
+  --accent-text:  #8c5f2c;
+  --accent-bright:#c99a4e;
+  --btn-fg:       #fbf6ec;
   --danger:       #b3261e;
-  --nav-bg:       rgba(255, 255, 255, 0.88);
-  --focus-ring:   rgba(15, 107, 98, 0.14);
-  --soft-bg:      rgba(15, 107, 98, 0.06);
-  --soft-line:    rgba(15, 107, 98, 0.25);
-  --shadow:       0 1px 2px rgba(16, 29, 28, 0.04), 0 12px 32px rgba(16, 29, 28, 0.05);
+  --nav-bg:       rgba(251, 246, 236, 0.88);
+  --focus-ring:   rgba(140, 95, 44, 0.18);
+  --soft-bg:      rgba(140, 95, 44, 0.07);
+  --soft-line:    rgba(140, 95, 44, 0.28);
+  --shadow:       0 1px 2px rgba(24, 38, 54, 0.05), 0 16px 40px rgba(24, 38, 54, 0.06);
 
-  --radius: 10px;
-  --maxw:   1080px;
-  --pad:    24px;
+  /* Panel fijo de marca — no cambia con el tema del sistema. */
+  --hero-bg:      #16273d;
+  --hero-ink:     #f6efe0;
+  --hero-ink-soft:#a9b7c8;
+  --hero-line:    rgba(246, 239, 224, 0.16);
+
+  --radius:    3px;
+  --radius-lg: 8px;
+  --maxw: 1080px;
+  --pad:  24px;
 }
 
 /* Tema oscuro: solo se redefinen los tokens, nunca los componentes.
    Bloque 1 — el visitante no eligió tema y su sistema está en oscuro. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink:          #e6eeed;
-    --ink-soft:     #97a7a5;
-    --line:         #253130;
-    --bg:           #0d1413;
-    --bg-alt:       #121b1a;
-    --accent:       #4bb8a8;
-    --accent-hover: #63cbbb;
-    --accent-text:  #6ed0c0;
-    --btn-fg:       #05201d;
+    --ink:          #ece4d3;
+    --ink-soft:     #9aa6b4;
+    --line:         #2b3542;
+    --bg:           #10161d;
+    --bg-alt:       #171f29;
+    --accent:       #d9b36c;
+    --accent-hover: #e8c687;
+    --accent-text:  #d9b36c;
+    --accent-bright:#d9b36c;
+    --btn-fg:       #16273d;
     --danger:       #f0938c;
-    --nav-bg:       rgba(13, 20, 19, 0.86);
-    --focus-ring:   rgba(75, 184, 168, 0.22);
-    --soft-bg:      rgba(75, 184, 168, 0.10);
-    --soft-line:    rgba(75, 184, 168, 0.30);
-    --shadow:       0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
+    --nav-bg:       rgba(16, 22, 29, 0.86);
+    --focus-ring:   rgba(217, 179, 108, 0.22);
+    --soft-bg:      rgba(217, 179, 108, 0.10);
+    --soft-line:    rgba(217, 179, 108, 0.30);
+    --shadow:       0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 40px rgba(0, 0, 0, 0.35);
   }
 }
 
 /* Bloque 2 — el visitante eligió oscuro explícitamente. */
 :root[data-theme="dark"] {
-  --ink:          #e6eeed;
-  --ink-soft:     #97a7a5;
-  --line:         #253130;
-  --bg:           #0d1413;
-  --bg-alt:       #121b1a;
-  --accent:       #4bb8a8;
-  --accent-hover: #63cbbb;
-  --accent-text:  #6ed0c0;
-  --btn-fg:       #05201d;
+  --ink:          #ece4d3;
+  --ink-soft:     #9aa6b4;
+  --line:         #2b3542;
+  --bg:           #10161d;
+  --bg-alt:       #171f29;
+  --accent:       #d9b36c;
+  --accent-hover: #e8c687;
+  --accent-text:  #d9b36c;
+  --accent-bright:#d9b36c;
+  --btn-fg:       #16273d;
   --danger:       #f0938c;
-  --nav-bg:       rgba(13, 20, 19, 0.86);
-  --focus-ring:   rgba(75, 184, 168, 0.22);
-  --soft-bg:      rgba(75, 184, 168, 0.10);
-  --soft-line:    rgba(75, 184, 168, 0.30);
-  --shadow:       0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
+  --nav-bg:       rgba(16, 22, 29, 0.86);
+  --focus-ring:   rgba(217, 179, 108, 0.22);
+  --soft-bg:      rgba(217, 179, 108, 0.10);
+  --soft-line:    rgba(217, 179, 108, 0.30);
+  --shadow:       0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
 * { box-sizing: border-box; }
@@ -72,6 +87,12 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition-duration: 0.01ms !important; }
+  .hero__tag, .hero__title, .hero__stroke, .lead, .hero__actions, .hero__facts {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero__stroke path { stroke-dashoffset: 0 !important; }
 }
 
 body {
@@ -85,9 +106,9 @@ body {
 
 h1, h2, h3 {
   margin: 0;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
   font-weight: 600;
+  font-family: "Fraunces", Georgia, serif;
   text-wrap: balance;
 }
 
@@ -104,6 +125,17 @@ a { color: inherit; text-decoration: none; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 var(--pad);
+}
+
+/* Etiqueta tipo anotación de ficha clínica: cursiva, minúsculas, sin
+   tracking. Reemplaza el tracked-caps "eyebrow" genérico y se reutiliza
+   en los rótulos de la ficha de contacto. */
+.note-label {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--accent-text);
 }
 
 /* ---------- Nav ---------- */
@@ -127,16 +159,16 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-family: "Fraunces", Georgia, serif;
   font-size: 19px;
   font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
 .logo__thin { font-weight: 400; color: var(--ink-soft); }
 
 .logo__mark {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--accent);
 }
@@ -175,42 +207,70 @@ a { color: inherit; text-decoration: none; }
 
 .btn--ghost {
   background: transparent;
-  color: var(--ink);
-  border-color: var(--line);
+  color: var(--hero-ink);
+  border-color: var(--hero-line);
 }
 
-.btn--ghost:hover { background: var(--bg-alt); border-color: var(--ink-soft); }
+.btn--ghost:hover { background: rgba(246, 239, 224, 0.08); border-color: var(--hero-ink-soft); }
 
-/* ---------- Hero ---------- */
-.hero { padding: 96px 0 80px; }
-
-.hero__inner { max-width: 680px; }
-
-.eyebrow {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-text);
-  margin-bottom: 20px;
+/* ---------- Hero: panel de tinta nocturna, fijo como marca ---------- */
+.hero {
+  position: relative;
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+  padding-top: 88px;
+  overflow: hidden;
 }
 
-.hero h1 { font-size: clamp(34px, 5.2vw, 54px); }
+.hero__inner { max-width: 680px; padding-bottom: 96px; }
+
+.hero__tag {
+  margin: 0 0 22px;
+  animation: rise 0.6s ease both;
+}
+
+.hero__title {
+  font-size: clamp(34px, 5.2vw, 54px);
+  color: var(--hero-ink);
+  animation: rise 0.6s ease 0.08s both;
+}
+
+.hero__stroke {
+  display: block;
+  width: 132px;
+  height: 16px;
+  margin-top: 18px;
+  overflow: visible;
+}
+
+.hero__stroke path {
+  fill: none;
+  stroke: var(--accent-bright);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 190;
+  stroke-dashoffset: 190;
+  animation: draw 0.7s ease 0.5s forwards;
+}
 
 .lead {
   margin-top: 22px;
   font-size: 18px;
-  color: var(--ink-soft);
+  color: var(--hero-ink-soft);
   max-width: 58ch;
+  animation: rise 0.6s ease 0.16s both;
 }
 
-.lead--sm { font-size: 16px; margin-top: 16px; }
+.lead--sm { font-size: 16px; margin-top: 16px; color: var(--ink-soft); }
+
+.hero .lead { color: var(--hero-ink-soft); }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 34px;
+  animation: rise 0.6s ease 0.24s both;
 }
 
 .hero__facts {
@@ -220,15 +280,37 @@ a { color: inherit; text-decoration: none; }
   list-style: none;
   margin: 56px 0 0;
   padding: 24px 0 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--hero-line);
+  animation: rise 0.6s ease 0.32s both;
 }
 
 .hero__facts li { display: flex; flex-direction: column; }
 .hero__facts strong { font-size: 15px; font-weight: 500; }
-.hero__facts span { font-size: 14px; color: var(--ink-soft); }
+.hero__facts span { font-size: 14px; color: var(--hero-ink-soft); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* La sonrisa: único divisor entre el panel nocturno y el papel.
+   Pinta con --bg y se apoya sobre el hero; el corte siguiente empalma
+   sin costura porque comparte el mismo color de fondo. */
+.hero__divider {
+  display: block;
+  width: 100%;
+  height: clamp(40px, 7vw, 84px);
+  margin-bottom: -1px;
+}
+
+.hero__divider path { fill: var(--bg); }
 
 /* ---------- Secciones ---------- */
-.section { padding: 80px 0; }
+.section { padding: 76px 0; }
 
 .section--alt {
   background: var(--bg-alt);
@@ -239,20 +321,64 @@ a { color: inherit; text-decoration: none; }
 .section__title { font-size: clamp(24px, 3.2vw, 32px); }
 
 .grid { display: grid; gap: 24px; }
-.grid--3 { grid-template-columns: repeat(3, 1fr); margin-top: 40px; }
 .grid--2 { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
 
-.card {
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--bg);
+/* ---------- Proceso: los únicos pasos reales de la página, por eso
+   son los únicos que se numeran. ---------- */
+.process__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 0;
+}
+
+.process__list li {
+  display: flex;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.process__num {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--accent-bright);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.process__list h3 { font-size: 17px; }
+.process__list p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
+
+/* ---------- Servicios: fila con jerarquía por tipografía y una
+   veta —el arco— en vez de tarjetas idénticas con sombra. ---------- */
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  margin-top: 40px;
+}
+
+.service {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
   transition: border-color 0.15s ease;
 }
 
-.card:hover { border-color: var(--ink-soft); }
-.card h3 { font-size: 17px; }
-.card p { margin-top: 10px; font-size: 15px; color: var(--ink-soft); }
+.service:hover { border-color: var(--accent); }
+
+.service__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service__arc { color: var(--accent); flex-shrink: 0; }
+.service h3 { font-size: 17px; }
+.service p { margin-top: 8px; font-size: 15px; color: var(--ink-soft); }
 
 .checklist { list-style: none; margin: 0; padding: 0; }
 
@@ -266,14 +392,13 @@ a { color: inherit; text-decoration: none; }
 .checklist li:last-child { border-bottom: 0; }
 
 .checklist li::before {
-  content: "";
+  content: "✓";
   position: absolute;
-  left: 4px;
-  top: 22px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
+  left: 0;
+  top: 13px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 /* ---------- Agendar ---------- */
@@ -291,23 +416,19 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid var(--line);
 }
 
-.details dt {
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
+.details dt { margin: 0; }
 .details dd { margin: 4px 0 0; font-size: 15px; }
 .details a:hover { color: var(--accent-text); }
 
 .form {
   padding: 32px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   background: var(--bg);
   box-shadow: var(--shadow);
 }
+
+.form__tab { margin: 0 0 20px; }
 
 .field { margin-bottom: 18px; }
 
@@ -330,7 +451,7 @@ input, select, textarea {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--bg);
   font-family: inherit;
   font-size: 15px;
@@ -368,7 +489,7 @@ input.is-invalid, select.is-invalid { border-color: var(--danger); }
   margin-top: 18px;
   padding: 14px 16px;
   border: 1px solid var(--soft-line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: var(--soft-bg);
   font-size: 14px;
   color: var(--accent-text);
@@ -381,24 +502,54 @@ input.is-invalid, select.is-invalid { border-color: var(--danger); }
   background: var(--bg-alt);
 }
 
-.footer__inner { display: flex; flex-direction: column; gap: 10px; }
-.footer p { font-size: 14px; color: var(--ink-soft); }
-.footer__copy { font-size: 13px; }
+.footer__inner { display: flex; flex-direction: column; gap: 14px; }
+
+.footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.footer__meta li { position: relative; padding-left: 14px; }
+.footer__meta li:first-child { padding-left: 0; }
+.footer__meta li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 1px;
+  background: var(--line);
+}
+.footer__meta a:hover { color: var(--accent-text); }
+
+.footer__copy { font-size: 13px; color: var(--ink-soft); }
 .logo--footer { font-size: 17px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .services { grid-template-columns: 1fr; }
+  .process__list { grid-template-columns: 1fr; gap: 24px; }
   .booking { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 640px) {
-  .hero { padding: 64px 0 56px; }
-  .section { padding: 60px 0; }
-  .grid--3, .grid--2 { grid-template-columns: 1fr; }
+  .hero { padding-top: 56px; }
+  .hero__inner { padding-bottom: 72px; }
+  .section { padding: 56px 0; }
+  .grid--2 { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .nav__links { gap: 16px; }
   .nav__links a:not(.btn) { display: none; }
   .hero__facts { gap: 28px; }
   .form { padding: 22px; }
+
+  .footer__meta { flex-direction: column; gap: 8px; }
+  .footer__meta li { padding-left: 0; }
+  .footer__meta li::before { display: none; }
 }
