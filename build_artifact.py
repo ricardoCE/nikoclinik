@@ -12,7 +12,7 @@ import re
 
 RAIZ = pathlib.Path(__file__).parent
 DIST = RAIZ / "dist"
-FUENTES = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+FUENTES = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap"
 TITULO = "NikoClinik"
 
 
